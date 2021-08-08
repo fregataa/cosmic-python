@@ -1,18 +1,17 @@
-
+from dataclasses import dataclass
 from datetime import date, timedelta
+from typing import Optional
 
+@dataclass(frozen=True)
 class OrderLine:
-
-    def __init__(self, ref: str, sku: str, qty: int) -> None:
-        self.ref = ref
-        self.sku = sku
-        self.qty = qty
-
+    orderid: str
+    sku: str
+    qty: int
 
 class Batch:
 
-    def __init__(self, ref: str, sku: str, qty: int, eta: date) -> None:
-        self.ref = ref
+    def __init__(self, ref: str, sku: str, qty: int, eta: Optional[date]) -> None:
+        self.reference = ref
         self.sku = sku
         self._available_quantity = qty
         self.eta = eta
