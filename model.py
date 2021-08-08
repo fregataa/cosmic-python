@@ -16,8 +16,14 @@ class Batch:
         self._available_quantity = qty
         self.eta = eta
 
+    def can_allocate(self, line: OrderLine):
+        return self.sku == line.sku and self._available_quantity >= line.qty
+
     def allocate(self, line: OrderLine):
         self._available_quantity -= line.qty
+    
+    def deallocate(self, line: OrderLine):
+        pass
 
     @property
     def available_quantity(self):
