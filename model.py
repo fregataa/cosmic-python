@@ -21,6 +21,11 @@ class Batch:
         self.eta = eta
         self._purchased_quantity = qty
         self._allocations: Set[OrderLine] = set()
+    
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Batch):
+            return False
+        return self.reference == other.reference
 
     def __gt__(self, other):
         if self.eta is None:
