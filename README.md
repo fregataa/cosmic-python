@@ -27,3 +27,5 @@ There is an example that explain how to achieve a given requirement - a file sys
 Additionally, can learn about edge-to-edge test and test codes which use Python unittest.mock has code smell.
 
 Instead, it is recommended to use fakes (fake objects or etc).
+
+How about doing [kata](http://www.peterprovost.org/blog/2012/05/02/kata-the-only-way-to-learn-tdd/)?
