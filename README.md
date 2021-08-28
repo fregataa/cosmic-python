@@ -29,3 +29,17 @@ Additionally, can learn about edge-to-edge test and test codes which use Python 
 Instead, it is recommended to use fakes (fake objects or etc).
 
 How about doing [kata](http://www.peterprovost.org/blog/2012/05/02/kata-the-only-way-to-learn-tdd/)?
+
+## Chapter 4 - API app and Service Layer.
+
+In this chapter, you will learn how to apply API endpoints to build MVP and how to add service layer.
+
+When we apply API endpoints, it looks very **heavy** and do lots of orchestration. Also e2e test code is ugly and long.
+
+_Orchestration_ is jobs fetching stuff out of our repository, validating our input against database state, handling errors, and committing in the happy path.
+
+API endpoints responsibility is doing "web stuff" such as parsing JSON and producing the right HTTP codes for happy or unhappy cases.
+
+> "web stuff" is translated to "standard web function" in Korean.
+
+The service layer takes orchestration from API endpoints.

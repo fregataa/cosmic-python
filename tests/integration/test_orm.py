@@ -1,16 +1,16 @@
-import model
+from domain import model
+
 
 def test_orderline_mapper_can_load_lines(session):
     session.execute(
-        'INSERT INTO order_lines (orderid, sku, qty) VALUES '
+        "INSERT INTO order_lines (orderid, sku, qty) VALUES "
         '("order1", "RED-CHAIR", 12),'
         '("order1", "RED-TABLE", 13),'
         '("order2", "BLUE-LIPSTICK", 14)'
     )
-    expected = [
-
-    ]
+    expected = []
     assert session.query(model.OrderLine).all() == expected
+
 
 def test_orderline_mapper_can_save_lines(session):
     new_line = model.OrderLine("order1", "DECO-WIDGET", 12)
