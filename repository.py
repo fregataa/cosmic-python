@@ -1,7 +1,7 @@
-
 import abc
 import model
 from typing import Protocol
+
 
 class RepositoryProtocol(Protocol):
     # if we set a type hint with this protocol to a variable or an argument,
@@ -12,6 +12,7 @@ class RepositoryProtocol(Protocol):
     def get(self, reference) -> None:
         ...
 
+
 class AbstractRepository(abc.ABC):
     @abc.abstractmethod
     def add(self, batch: model.Batch):
@@ -21,19 +22,20 @@ class AbstractRepository(abc.ABC):
     def get(self, reference) -> model.Batch:
         raise NotImplementedError
 
-class FakeRepository(AbstractRepository):
 
+class FakeRepository(AbstractRepository):
     def __init__(self, batches):
         self._batches = set(batches)
-    
+
     def add(self, batch):
         self._batches.add(batch)
 
     def get(self, reference):
         return next(b for b in self._batches if b.reference == reference)
-    
+
     def list(self):
         return list(self._batches)
+
 
 class SqlAlchemyRepository(AbstractRepository):
     def __init__(self, session):

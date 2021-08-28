@@ -6,7 +6,8 @@ import model
 metadata = MetaData()
 
 order_lines = Table(
-    "order_lines", metadata,
+    "order_lines",
+    metadata,
     # Maybe, it will be nicer if we set those arguments by OrderLine model attributes.
     Column("id", Integer, primary_key=True, autoincrement=True),
     Column("sku", String(255)),
@@ -31,6 +32,7 @@ allocations = Table(
     Column("orderline_id", ForeignKey("order_lines.id")),
     Column("batch_id", ForeignKey("batches.id")),
 )
+
 
 def start_mappers():
     lines_mapper = mapper(model.OrderLine, order_lines)
