@@ -1,7 +1,7 @@
 import abc
-import model
 from typing import Protocol
 
+from domain import model
 
 class RepositoryProtocol(Protocol):
     # if we set a type hint with this protocol to a variable or an argument,
